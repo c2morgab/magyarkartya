@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memóriajáték</title>
+</head>
+<body>
+    <form action="#" method="post" onsubmit="tablazat(event)">
+        <input type="number" name="elso" id="elso" min="3" max="8">
+        <input type="number" name="masodik" id="masodik" min="3" max="8">
+        <input type="submit" value="Létrehoz">
+    </form>
+    <table id="tablazat"></table>
+    <script>
+        function tablazat(e)
+        {
+            e.preventDefault();
+            let elso = document.getElementById('elso').value;
+            let masodik = document.getElementById('masodik').value;
+            console.log(elso);
+            console.log(masodik);
+            let tabla= "";
+            for (i = 0; i < elso; i++)
+            {
+                tabla += "<tr>"
+                for (j = 0; j < masodik; j++)
+                {
+                    tabla += "<td>a</td>"
+                }
+                tabla += "</tr>"
+            }
+            let joker = 0;
+            if ((elso * masodik) % 2)
+            {
+            }
+            else joker = 1;
+            console.log(joker);
+            document.getElementById("tablazat").innerHTML = tabla
+        }
+    </script>
+</body>
+</html>
