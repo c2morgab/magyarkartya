@@ -18,25 +18,30 @@
             e.preventDefault();
             let elso = document.getElementById('elso').value;
             let masodik = document.getElementById('masodik').value;
-            console.log(elso);
-            console.log(masodik);
-            let tabla= "";
-            for (i = 0; i < elso; i++)
+            if (elso * masodik % 2 == 0)
             {
-                tabla += "<tr>"
-                for (j = 0; j < masodik; j++)
+                let par_db = (elso * masodik) / 2;
+                let rnd_array = new Array();
+                while (rnd_array.length < par_db)
                 {
-                    tabla += "<td>a</td>"
+                    let tmp = Math.floor(Math.random() * 32) + 1;
+                    if (rnd_array.includes(tmp)) continue;
+                    else rnd_array.push(tmp);
                 }
-                tabla += "</tr>"
+                console.log("Random kártyák: " + rnd_array);
+                console.log("Első szám: " + elso + "\nMásodik szám: " + masodik + "\nHány darab pár: " + par_db);
+                let tabla= "";
+                for (i = 0; i < elso; i++)
+                {
+                    tabla += "<tr>"
+                    for (j = 0; j < masodik; j++)
+                    {
+                        tabla += "<td>a</td>"
+                    }
+                    tabla += "</tr>"
+                }
+                document.getElementById("tablazat").innerHTML = tabla
             }
-            let joker = 0;
-            if ((elso * masodik) % 2)
-            {
-            }
-            else joker = 1;
-            console.log(joker);
-            document.getElementById("tablazat").innerHTML = tabla
         }
     </script>
 </body>
